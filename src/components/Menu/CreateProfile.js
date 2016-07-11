@@ -1,6 +1,4 @@
 import React, { Component, PropTypes} from 'react';
-import ageRanges from '../../../../config/ageRanges';
-import genders from '../../../../config/genders';
 
 let genderRef;
 let ageRangeRef;
@@ -35,7 +33,7 @@ class CreateProfile extends Component {
           }
       }>
         {
-          ageRanges.map(
+          this.props.menuData.ageRanges.map(
             (ageRange, id) => <option value={id} key={id}>{ageRange}</option>
           )
         }
@@ -47,7 +45,7 @@ class CreateProfile extends Component {
         }
       }>
         {
-          genders.map(
+          this.props.menuData.genders.map(
             (gender, id) => <option value={id} key={id}>{gender}</option>
           )
         }
@@ -60,6 +58,7 @@ class CreateProfile extends Component {
 
 CreateProfile.propTypes = {
   user: PropTypes.object.isRequired,
+  menuData: PropTypes.object.isRequired,
   onSignOut: PropTypes.func.isRequired,
   onCreateProfile: PropTypes.func.isRequired,
 };

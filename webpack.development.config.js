@@ -11,7 +11,7 @@ module.exports = {
     __dirname + '/src/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -22,7 +22,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      firebaseConfig: __dirname + '/../config/firebase/' + process.env.BABEL_ENV + '/firebaseConfig',
+      firebaseConfig: '../constants/firebase/development/firebaseConfig',
     }
   },
   module: {
@@ -33,7 +33,7 @@ module.exports = {
         exclude: /node_modules/,
         include: __dirname,
         query: {
-          presets: ["es2015", "react", "react-hmre"]
+          presets: ['es2015', 'react', 'react-hmre']
         }
       }
     ]

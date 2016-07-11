@@ -49,6 +49,7 @@ class App extends Component {
       />
       <Menu
         user={this.props.user}
+        menuData={this.props.menuData}
         onSignIn={this.onSignIn}
         onSignOut={this.onSignOut}
         onCreateProfile={this.onCreateProfile}

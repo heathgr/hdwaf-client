@@ -17,12 +17,14 @@ class Menu extends Component {
       } else if (this.props.user.authData && this.props.user.profile === false) {
         return <CreateProfile
           user={ this.props.user }
+          menuData={ this.props.menuData }
           onCreateProfile={ this.props.onCreateProfile }
           onSignOut={ this.props.onSignOut }
         />;
       } else if (this.props.user.authData && this.props.user.statusData) {
         return <UpdateStatus
           user={ this.props.user }
+          menuData={ this.props.menuData }
           onUpdateStatus={ this.props.onUpdateStatus }
           onSignOut={ this.props.onSignOut }
         />;
@@ -47,6 +49,7 @@ class Menu extends Component {
 
 Menu.propTypes = {
   user: PropTypes.object,
+  menuData: PropTypes.object.isRequired,
   onSignIn: PropTypes.func.isRequired,
   onSignOut: PropTypes.func.isRequired,
   onCreateProfile: PropTypes.func.isRequired,

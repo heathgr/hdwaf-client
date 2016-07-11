@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import statuses from '../../../../config/statuses';
 
 class UpdateStatus extends Component {
   constructor (props) {
@@ -11,7 +10,7 @@ class UpdateStatus extends Component {
       <h2>How Do You Feel Today?</h2>
       <div>
         {
-          statuses.map(
+          this.props.menuData.statuses.map(
             (status, id) => <button
               key={id}
               onClick={this.props.onUpdateStatus.bind(
@@ -35,6 +34,7 @@ UpdateStatus.propTypes = {
   onUpdateStatus: PropTypes.func.isRequired,
   onSignOut: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
+  menuData: PropTypes.object.isRequired,
 };
 
 export default UpdateStatus;

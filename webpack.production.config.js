@@ -15,7 +15,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      firebaseConfig: __dirname + '/../config/firebase/development/firebaseConfig',
+      firebaseConfig: '../constants/firebase/development/firebaseConfig',
     }
   },
   plugins: [
