@@ -188,7 +188,7 @@ const config = {
     colors: {
       text: '#eeeeee',
       counter: '#F1EE1F',
-      background: '#333333',
+      background: '#363438',
     },
     fontFamilies: {
       text: 'Open Sans',
