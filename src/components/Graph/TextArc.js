@@ -10,7 +10,7 @@ class TextPath extends Component {
       {},
       this.props.style, {
         textAnchor: 'middle',
-        dominantBaseline: 'middle',
+        dominantBaseline: 'central',
       }
     );
 
@@ -18,8 +18,8 @@ class TextPath extends Component {
       <defs>
         <path id={this.props.textId} d={this.props.pathData}/>
       </defs>
-      <text style={textStyle}>
-        <textPath xlinkHref={'#' + this.props.textId} startOffset='50%'>
+      <text>
+        <textPath style={textStyle} xlinkHref={'#' + this.props.textId} startOffset='50%'>
           {this.props.text}
         </textPath>
       </text>

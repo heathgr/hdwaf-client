@@ -9,27 +9,37 @@ const degToRad = Math.PI / 180;
 const genderMultiplier = 0.9;
 const ageRangeMultiplier = 0.8;
 
+const masterTitleRadius = 520;
+const masterElementRadius = 455;
+const masterPercentagesRadius = 325;
+const masterIconRadius = (masterElementRadius + masterPercentagesRadius) * 0.5;
+const masterSankeyEndRadius = masterPercentagesRadius - 25;
+
+const masterPercentageFontSize = 25;
+const masterElementFontSize = 20;
+const masterTitleFontSize = 40;
+
 const config = {
-  graphOrigin: [500, 500],
+  graphOrigin: [500, 418],
   graphSectors: {
     statuses: {
       startAngle: 140 * degToRad,
       endAngle: 40 * degToRad,
       title: {
-        radius: 450,
+        radius: masterTitleRadius,
         text: 'How Do We All Feel?',
       },
       elements: {
-        radius: 400,
+        radius: masterElementRadius,
         text: statuses,
         count: statuses.length,
       },
       percentages: {
-        radius: 275,
+        radius: masterPercentagesRadius,
         count: statuses.length,
       },
       icons: {
-        radius: 337.5,
+        radius: masterIconRadius,
         data: statusIcons,
         scale: 1,
         bottomTowardsCenter: false,
@@ -37,10 +47,9 @@ const config = {
       sankey: {
         width: 100,
         startRadius: 110,
-        splitRadius: 200,
         invertSplitOrder: true,
         tipHeight: 7.5,
-        endRadius: 255,
+        endRadius: masterSankeyEndRadius,
       },
       colors: {
         sankey: '#F1EE1F',
@@ -51,9 +60,9 @@ const config = {
         iconBackgrounds: '#F1EE1F',
       },
       fontSizes: {
-        title: 40,
-        elements: 20,
-        percentages: 20,
+        title: masterTitleFontSize,
+        elements: masterElementFontSize,
+        percentages: masterPercentageFontSize,
       },
       fontFamilies: {
         title: 'Oswald',
@@ -65,20 +74,20 @@ const config = {
       startAngle: 287.5 * degToRad,
       endAngle: 372.5 * degToRad,
       title: {
-        radius: 450 * ageRangeMultiplier,
+        radius: masterTitleRadius * ageRangeMultiplier,
         text: 'How Old is Everyone?',
       },
       elements: {
-        radius: 400 * ageRangeMultiplier,
+        radius: masterElementRadius * ageRangeMultiplier,
         text: ageRanges,
         count: ageRanges.length,
       },
       percentages: {
-        radius: 275 * ageRangeMultiplier,
+        radius: masterPercentagesRadius * ageRangeMultiplier,
         count: ageRanges.length,
       },
       icons: {
-        radius: 337.5 * ageRangeMultiplier,
+        radius: masterIconRadius * ageRangeMultiplier,
         data: ageRangeIcons,
         scale: ageRangeMultiplier,
         bottomTowardsCenter: true,
@@ -86,10 +95,9 @@ const config = {
       sankey: {
         width: 100 * ageRangeMultiplier,
         startRadius: 105,
-        splitRadius: 200 * ageRangeMultiplier,
         invertSplitOrder: false,
-        tipHeight: 7.5 * ageRangeMultiplier,
-        endRadius: 255 * ageRangeMultiplier,
+        tipHeight: 7.5,
+        endRadius: masterSankeyEndRadius * ageRangeMultiplier,
       },
       colors: {
         sankey: '#CC7C2D',
@@ -99,9 +107,9 @@ const config = {
         icons: '#CC7C2D',
       },
       fontSizes: {
-        title: 40 * ageRangeMultiplier,
-        elements: 20 * ageRangeMultiplier,
-        percentages: 20 * ageRangeMultiplier,
+        title: masterTitleFontSize * ageRangeMultiplier,
+        elements: masterElementFontSize * ageRangeMultiplier,
+        percentages: masterPercentageFontSize * ageRangeMultiplier,
       },
       fontFamilies: {
         title: 'Oswald',
@@ -113,20 +121,20 @@ const config = {
       startAngle: 184.5 * degToRad,
       endAngle: 235.5 * degToRad,
       title: {
-        radius: 450 * genderMultiplier,
+        radius: masterTitleRadius * genderMultiplier,
         text: 'What About Gender?',
       },
       elements: {
-        radius: 400 * genderMultiplier,
+        radius: masterElementRadius * genderMultiplier,
         text: genders,
         count: genders.length,
       },
       percentages: {
-        radius: 275 * genderMultiplier,
+        radius: masterPercentagesRadius * genderMultiplier,
         count: genders.length,
       },
       icons: {
-        radius: 337.5 * genderMultiplier,
+        radius: masterIconRadius * genderMultiplier,
         data: genderIcons,
         scale: genderMultiplier,
         bottomTowardsCenter: true,
@@ -134,10 +142,9 @@ const config = {
       sankey: {
         width: 100 * genderMultiplier,
         startRadius: 105,
-        splitRadius: 200 * genderMultiplier,
         invertSplitOrder: false,
-        tipHeight: 7.5 * genderMultiplier,
-        endRadius: 255 * genderMultiplier,
+        tipHeight: 7.5,
+        endRadius: masterSankeyEndRadius * genderMultiplier,
       },
       colors: {
         sankey: '#3E993D',
@@ -147,9 +154,9 @@ const config = {
         icons: '#3E993D',
       },
       fontSizes: {
-        title: 40 * genderMultiplier,
-        elements: 20 * genderMultiplier,
-        percentages: 20 * genderMultiplier,
+        title: masterTitleFontSize * genderMultiplier,
+        elements: masterElementFontSize * genderMultiplier,
+        percentages: masterPercentageFontSize * genderMultiplier,
       },
       fontFamilies: {
         title: 'Oswald',
@@ -159,19 +166,21 @@ const config = {
     },
   },
   startBadge: {
-    origin: [500, 500],
+    origin: [500, 418],
     radius: 95,
     counterLine: 0,
     textLines: [
       null,
       'count',
-      'users have shared how',
-      'they are feeling',
+      'users have shared',
+      'how they are',
+      'feeling',
       null,
     ],
     textLineWeights: [
       1,
       3,
+      1,
       1,
       1,
       1.5,
