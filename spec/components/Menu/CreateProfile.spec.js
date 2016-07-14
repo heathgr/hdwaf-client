@@ -7,8 +7,9 @@ import sinon from 'sinon';
 import React from 'react';
 
 import CreateProfile from '../../../src/components/Menu/CreateProfile';
-import ageRanges from '../../../../config/ageRanges';
-import genders from '../../../../config/genders';
+import menuData from '../../testConstants/menuData';
+import ageRanges from '../../../src/constants/common/ageRanges';
+import genders from '../../../src/constants/common/genders';
 
 describe('<CreateProfile />', () => {
   chai.use(chaiEnzyme);
@@ -26,10 +27,11 @@ describe('<CreateProfile />', () => {
     user={ user }
     onCreateProfile={ onCreateProfile }
     onSignOut={ onSignOut }
+    menuData={ menuData }
   />);
 
   it('should have a welcome message with the user\'s display name', () => {
-    expect(createProfileWrapper.find('#welcomeMessage')).to.have.text('Welcome, Doctor Philastus Hurlbut.  Tell us a little bit about yourself.');
+    expect(createProfileWrapper.find('#welcomeMessage')).to.have.text('Welcome, Doctor Philastus Hurlbut.');
   });
 
   it('should have an age range selector', () => {

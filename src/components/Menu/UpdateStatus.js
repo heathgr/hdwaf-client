@@ -20,7 +20,7 @@ class UpdateStatus extends Component {
               )}
               id={status + 'StatusButton'}
               style={{
-                width: 8.333333333333333 + '%',
+                width: 15 + '%',
               }}
             >
               {status}

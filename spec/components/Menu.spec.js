@@ -12,6 +12,8 @@ import SignIn from '../../src/components/Menu/SignIn';
 import CreateProfile from '../../src/components/Menu/CreateProfile';
 import UpdateStatus from '../../src/components/Menu/UpdateStatus';
 
+import menuData from '../testConstants/menuData';
+
 describe('<Menu />', () => {
   chai.use(chaiEnzyme);
 
@@ -34,6 +36,7 @@ describe('<Menu />', () => {
       onSignOut={onSignOut}
       onCreateProfile={onCreateProfile}
       onUpdateStatus={onUpdateStatus}
+      menuData={menuData}
     />);
 
     expect(menuWrapper).to.have.text('');
@@ -49,11 +52,19 @@ describe('<Menu />', () => {
     const onUpdateStatus = sinon.spy();
 
     const menuWrapper = mount(<Menu
-      user={{ authData: false, profile: null }}
+      user={
+        {
+          authData: {
+            uid: null,
+          },
+          profile: null
+        }
+      }
       onSignIn={onSignIn}
       onSignOut={onSignOut}
       onCreateProfile={onCreateProfile}
       onUpdateStatus={onUpdateStatus}
+      menuData={menuData}
     />);
 
     expect(menuWrapper).to.contain(<SignIn onSignIn={onSignIn}/>);
@@ -81,16 +92,18 @@ describe('<Menu />', () => {
       onCreateProfile = {onCreateProfile}
       onUpdateStatus = {onUpdateStatus}
       user={user}
+      menuData={menuData}
     />);
 
     expect(menuWrapper).to.contain(<CreateProfile
       onSignOut={onSignOut}
       onCreateProfile = {onCreateProfile}
       user={user}
+      menuData={menuData}
     />);
   });
 
-  it('should display an update component if the user is authenticated and has a profile.', () => {
+  it('should display an update component if the user is authenticated and has a profile and a status.', () => {
     const onSignIn = sinon.spy();
 
     const onSignOut = sinon.spy();
@@ -109,15 +122,25 @@ describe('<Menu />', () => {
         gender: 1,
         status: 2,
       },
+      statusData: {
+        status: 3,
+        previousStatus: 0,
+      },
     };
     const menuWrapper = mount(<Menu
-      onSignIn={ onSignIn }
-      onSignOut={ onSignOut }
-      onCreateProfile={ onCreateProfile }
-      onUpdateStatus={ onUpdateStatus }
-      user={ user }
+      onSignIn={onSignIn}
+      onSignOut={onSignOut}
+      onCreateProfile={onCreateProfile}
+      onUpdateStatus={onUpdateStatus}
+      user={user}
+      menuData={menuData}
     />);
 
-    expect(menuWrapper).to.contain(<UpdateStatus user={user} onUpdateStatus={ onUpdateStatus }/>);
+    expect(menuWrapper).to.contain(<UpdateStatus
+      user={user}
+      onUpdateStatus={onUpdateStatus}
+      onSignOut={onSignOut}
+      menuData={menuData}
+    />);
   });
 });

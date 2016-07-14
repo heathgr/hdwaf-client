@@ -6,6 +6,7 @@ import sinon from 'sinon';
 import React from 'react';
 
 import graphData from '../testConstants/testGraphData';
+import menuData from '../testConstants/menuData';
 
 import App from '../../src/components/App';
 import Graph from '../../src/components/Graph';
@@ -25,6 +26,7 @@ describe('<App />', () => {
     dispatch={sinon.spy()}
     user={user}
     graphData={graphData}
+    menuData={menuData}
   />);
 
   it('should contain a graph component', () => {
@@ -39,6 +41,7 @@ describe('<App />', () => {
       onSignOut={appWrapper.node.onSignOut}
       onCreateProfile={appWrapper.node.onCreateProfile}
       onUpdateStatus={appWrapper.node.onUpdateStatus}
+      menuData={menuData}
       user={user}
     />);
   });

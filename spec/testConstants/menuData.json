@@ -1,0 +1,22 @@
+{
+  "ageRanges": [
+    "↓18",
+    "18 - 34",
+    "35 - 44",
+    "45 - 65",
+    "↑65"
+  ],
+  "genders": [
+    "Male",
+    "Female",
+    "Other"
+  ],
+  "statuses": [
+    "Happy",
+    "Sad",
+    "Bored",
+    "Stressed",
+    "Angry",
+    "Horny"
+  ]
+}

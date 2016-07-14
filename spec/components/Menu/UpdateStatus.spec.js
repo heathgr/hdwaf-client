@@ -7,28 +7,38 @@ import sinon from 'sinon';
 import React from 'react';
 
 import UpdateStatus from '../../../src/components/Menu/UpdateStatus';
-import statuses from '../../../../config/statuses';
+import statuses from '../../../src/constants/common/statuses';
 
 import statusData from '../../testConstants/statusData';
+import menuData from '../../testConstants/menuData';
 
 describe('<UpdateStatus />', () => {
   chai.use(chaiEnzyme());
 
   const onUpdateStatus = sinon.spy();
+  const onSignOut = sinon.spy();
   const user = {
     statusData,
+    profile: {
+      displayName: 'Doctor Philastus Hurlbut',
+    },
   };
 
-  const UpdateStatusWrapper = mount(<UpdateStatus onUpdateStatus={onUpdateStatus} user={user} />);
+  const UpdateStatusWrapper = mount(<UpdateStatus
+    onUpdateStatus={onUpdateStatus}
+    onSignOut={onSignOut}
+    menuData={menuData}
+    user={user}
+  />);
 
   it('Should have an update status button for every status value', () => {
-    expect(UpdateStatusWrapper).to.have.exactly(statuses.length).descendants('button');
+    expect(UpdateStatusWrapper).to.have.exactly(statuses.length + 1).descendants('button');
   });
 
   it('Should have buttons that are correctly labeled', () => {
     statuses.map(
       (status) => {
-        expect(UpdateStatusWrapper.find('#' + status + 'StatusButton')).to.have.text('I am feeling ' + status + '.');
+        expect(UpdateStatusWrapper.find('#' + status + 'StatusButton')).to.have.text(status);
       }
     );
   });

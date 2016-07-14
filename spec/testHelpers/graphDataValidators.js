@@ -1,7 +1,7 @@
 import Joi from 'joi';
-import genders from '../../../config/genders';
-import statuses from '../../../config/statuses';
-import ageRanges from '../../../config/ageRanges';
+import genders from '../../src/constants/common/genders';
+import statuses from '../../src/constants/common/statuses';
+import ageRanges from '../../src/constants/common/ageRanges';
 
 const svgDataRegex = /([mlhvcsqta]([\d\.\-]+z?,?)+)+/i;
 const transformMatrixRegex = /matrix\((-?[\d]+\.?[\d]*,){5}(-?[\d]+\.?[\d]*)\)/;
@@ -27,7 +27,7 @@ const textArcSchema = Joi.object().keys({
   style: Joi.object().keys({
     fill: Joi.string().required(),
     fontFamily: Joi.string().required(),
-    fontSize: Joi.number().integer().required(),
+    fontSize: Joi.number().required(),
   }).required(),
   text: Joi.string().required(),
   textId: Joi.string().required(),
@@ -36,6 +36,7 @@ const textArcSchema = Joi.object().keys({
 const textArcValidator = (textArc) => {
   const res = Joi.validate(textArc, textArcSchema);
 
+  if (res.error) console.log('fuck: ', res);
   return res.error ? false : true;
 };
 

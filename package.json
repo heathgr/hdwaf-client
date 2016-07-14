@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "node test.js",
-    "deploy": "node scripts/deploy.js"
+    "deploy": "webpack --config webpack.production.config.js -p && firebase deploy"
   },
   "author": "Grant Heath",
   "license": "ISC",

@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import graphData from '../../src/reducers/graphData';
-import statuses from '../../../config/statuses';
-import ageRanges from '../../../config/ageRanges';
-import genders from '../../../config/genders';
+import statuses from '../../src/constants/common/statuses';
+import ageRanges from '../../src/constants/common/ageRanges';
+import genders from '../../src/constants/common/genders';
 import testTotalsAction from '../testConstants/testTotalsAction';
 import {
   textArcValidator,
