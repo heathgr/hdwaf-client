@@ -58,8 +58,22 @@ class CreateProfile extends Component {
           </li>
         </ul>
       </div>
-      <button id='createProfileButton' onClick={this.createProfile}>Let's get started.</button>
-      <button id='signOutButton' onClick={this.props.onSignOut}>Nevermind, I want to sign out.</button>
+      <button
+        id='createProfileButton'
+        onClick={this.createProfile}
+      >
+        Let's get started.
+      </button>
+      <button
+        id='signOutButton'
+        onClick={this.props.onSignOut}
+        style= {{
+          backgroundColor: '#a50010',
+          color: '#ffeeee',
+        }}
+      >
+        Nevermind, I want to sign out.
+      </button>
     </div>;
   }
 }

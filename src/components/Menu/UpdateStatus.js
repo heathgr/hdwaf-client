@@ -29,6 +29,10 @@ class UpdateStatus extends Component {
         }
       </div>
       <button
+        style = {{
+          backgroundColor: '#a50010',
+          color: '#ffeeee',
+        }}
         onClick = {this.props.onSignOut}
       >
         I dont't want to do this anymore.&nbsp;Sign me out.
