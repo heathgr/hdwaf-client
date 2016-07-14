@@ -3,6 +3,7 @@
   <head>
     <title>How Do We All Feel?</title>
     <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <style media="screen" type="text/css">
       /* oswald-regular - latin */
       @font-face {
@@ -35,7 +36,9 @@
       body {
         background: #443D4C;
         color: #eeeeee;
-        font-family: "Oswald";
+        font-family: "Open Sans";
+        font-size: 15px;
+        margin: 0px;
       }
 
       h2 {
@@ -43,15 +46,33 @@
         border: none;
         color: #eeeeee;
         font-size: 20px;
+        font-family: 'Oswald';
       }
 
       button {
         background: #887A99;
         color: #eeeeee;
         font-family: 'Open Sans';
+        font-size: 12px;
         border: none;
         outline: none;
         margin: 2px;
+        padding: 4px 15px 4px 15px;
+      }
+
+      ul li {
+        float: left;
+        list-style: none;
+      }
+
+      ul {
+        display: inline-block;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      select {
+        margin: 0px 10px;
       }
     </style>
   </head>

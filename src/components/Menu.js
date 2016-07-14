@@ -43,7 +43,12 @@ class Menu extends Component {
         height: 100,
         textAlign: 'center',
       }}
-    >{getMenuComponent()}</div>;
+    ><CreateProfile
+      user={ this.props.user }
+      menuData={ this.props.menuData }
+      onCreateProfile={ this.props.onCreateProfile }
+      onSignOut={ this.props.onSignOut }
+    /></div>;
   }
 }
 

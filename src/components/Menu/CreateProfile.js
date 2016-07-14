@@ -23,35 +23,43 @@ class CreateProfile extends Component {
         {
           'Welcome, ' +
           this.props.user.authData.displayName +
-          '.  Tell us a little bit about yourself.'
+          '.'
         }
       </h2>
-      <h3>What is your age range?</h3>
-      <select name='age range' id='ageRangeSelector' ref={
-          (ref) => {
-            ageRangeRef = ref;
-          }
-      }>
-        {
-          this.props.menuData.ageRanges.map(
-            (ageRange, id) => <option value={id} key={id}>{ageRange}</option>
-          )
-        }
-      </select>
-      <h3>What gender do you identify as?</h3>
-      <select name='gender' id='genderSelector' ref={
-        (ref) => {
-          genderRef = ref;
-        }
-      }>
-        {
-          this.props.menuData.genders.map(
-            (gender, id) => <option value={id} key={id}>{gender}</option>
-          )
-        }
-      </select>
-      <button id='createProfileButton' onClick={this.createProfile}>Create Profile</button>
-      <button id='signOutButton' onClick={this.props.onSignOut}>Sign Out</button>
+      <div>
+        <ul>
+          <li>How old are you?</li>
+          <li>
+            <select name='age range' id='ageRangeSelector' ref={
+              (ref) => {
+                ageRangeRef = ref;
+              }
+            }>
+              {
+                this.props.menuData.ageRanges.map(
+                  (ageRange, id) => <option value={id} key={id}>{ageRange}</option>
+                )
+              }
+            </select>
+          </li>
+          <li>What do you identify as?</li>
+          <li>
+            <select name='gender' id='genderSelector' ref={
+              (ref) => {
+                genderRef = ref;
+              }
+            }>
+              {
+                this.props.menuData.genders.map(
+                  (gender, id) => <option value={id} key={id}>{gender}</option>
+                )
+              }
+            </select>
+          </li>
+        </ul>
+      </div>
+      <button id='createProfileButton' onClick={this.createProfile}>Let's get started.</button>
+      <button id='signOutButton' onClick={this.props.onSignOut}>Nevermind, I want to sign out.</button>
     </div>;
   }
 }

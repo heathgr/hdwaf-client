@@ -7,7 +7,7 @@ class UpdateStatus extends Component {
 
   render () {
     return <div>
-      <h2>How Do You Feel Today?</h2>
+      <h2>{this.props.user.profile.displayName}, how do you feel today?</h2>
       <div>
         {
           this.props.menuData.statuses.map(
@@ -19,13 +19,20 @@ class UpdateStatus extends Component {
                 this.props.user.statusData ? this.props.user.statusData.status : null
               )}
               id={status + 'StatusButton'}
+              style={{
+                width: 8.333333333333333 + '%',
+              }}
             >
-              {'I am feeling ' + status + '.'}
+              {status}
             </button>
           )
         }
       </div>
-      <button onClick = {this.props.onSignOut}>Sign Out</button>
+      <button
+        onClick = {this.props.onSignOut}
+      >
+        I dont't want to do this anymore.&nbsp;Sign me out.
+      </button>
     </div>;
   }
 }
