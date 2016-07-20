@@ -6,8 +6,8 @@ class UpdateStatus extends Component {
   }
 
   render () {
-    return <div>
-      <h2>{this.props.user.profile.displayName}, how do you feel today?</h2>
+    return <div id="menuWrapper">
+      <h1>Welcome, how do you feel today?</h1>
       <div>
         {
           this.props.menuData.statuses.map(
@@ -19,24 +19,23 @@ class UpdateStatus extends Component {
                 this.props.user.statusData ? this.props.user.statusData.status : null
               )}
               id={status + 'StatusButton'}
-              style={{
-                width: 15 + '%',
-              }}
             >
               {status}
             </button>
           )
         }
       </div>
-      <button
-        style = {{
-          backgroundColor: '#a50010',
-          color: '#ffeeee',
-        }}
-        onClick = {this.props.onSignOut}
-      >
-        I dont't want to do this anymore.&nbsp;Sign me out.
-      </button>
+      <div>
+        <button
+          style = {{
+            backgroundColor: '#a50010',
+            color: '#ffeeee',
+          }}
+          onClick = {this.props.onSignOut}
+        >
+          I dont't want to do this anymore.&nbsp;Sign me out.
+        </button>
+      </div>
     </div>;
   }
 }

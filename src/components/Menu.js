@@ -33,17 +33,7 @@ class Menu extends Component {
       }
     };
 
-    return <div
-      style={{
-        background: '#393340',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 100,
-        textAlign: 'center',
-      }}
-    >{getMenuComponent()}</div>;
+    return <div id='menu'>{getMenuComponent()}</div>;
   }
 }
 

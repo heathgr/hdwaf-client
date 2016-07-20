@@ -1,4 +1,4 @@
-import React, { Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class SignIn extends Component {
   constructor (props) {
@@ -6,8 +6,8 @@ class SignIn extends Component {
   }
 
   render () {
-    return <div>
-      <h2>Want to participate?</h2>
+    return <div id="menuWrapper">
+      <h1>Want to participate?</h1>
       <button onClick={ this.props.onSignIn }>Sign In With Your Google Account</button>
     </div>;
   }

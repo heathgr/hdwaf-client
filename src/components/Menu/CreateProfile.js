@@ -18,62 +18,53 @@ class CreateProfile extends Component {
   }
 
   render () {
-    return <div>
-      <h2 id='welcomeMessage'>
-        {
-          'Welcome, ' +
-          this.props.user.authData.displayName +
-          '.'
-        }
-      </h2>
-      <div>
-        <ul>
-          <li>How old are you?</li>
-          <li>
-            <select name='age range' id='ageRangeSelector' ref={
-              (ref) => {
-                ageRangeRef = ref;
-              }
-            }>
-              {
-                this.props.menuData.ageRanges.map(
-                  (ageRange, id) => <option value={id} key={id}>{ageRange}</option>
-                )
-              }
-            </select>
-          </li>
-          <li>What do you identify as?</li>
-          <li>
-            <select name='gender' id='genderSelector' ref={
-              (ref) => {
-                genderRef = ref;
-              }
-            }>
-              {
-                this.props.menuData.genders.map(
-                  (gender, id) => <option value={id} key={id}>{gender}</option>
-                )
-              }
-            </select>
-          </li>
-        </ul>
+    return <div id="menuWrapper">
+      <div className='menuLine'>
+        <div className='createProfileLabel'>How old are you?</div>
+        <select className='createProfileSelector' name='age range' id='ageRangeSelector' ref={
+          (ref) => {
+            ageRangeRef = ref;
+          }
+        }>
+          {
+            this.props.menuData.ageRanges.map(
+              (ageRange, id) => <option value={id} key={id}>{ageRange}</option>
+            )
+          }
+        </select>
       </div>
-      <button
-        id='createProfileButton'
-        onClick={this.createProfile}
-      >
-        Let's get started.
-      </button>
-      <button
-        id='signOutButton'
-        onClick={this.props.onSignOut}
-        style= {{
-          backgroundColor: '#a50010',
-          color: '#ffeeee',
-        }}
-      >
-        Nevermind, I want to sign out.
-      </button>
+      <div className='menuLine'>
+        <div className='createProfileLabel'>What do you identify as?</div>
+        <select className='createProfileSelector' name='gender' id='genderSelector' ref={
+          (ref) => {
+            genderRef = ref;
+          }
+        }>
+          {
+            this.props.menuData.genders.map(
+              (gender, id) => <option value={id} key={id}>{gender}</option>
+            )
+          }
+        </select>
+      </div>
+      <div className='menuLine'>
+        <button
+          id='createProfileButton'
+          onClick={this.createProfile}
+        >
+          Ok, let's get started.
+        </button>
+        <button
+          id='signOutButton'
+          onClick={this.props.onSignOut}
+          style= {{
+            backgroundColor: '#a50010',
+            color: '#ffeeee',
+          }}
+        >
+          Nevermind, I want to sign out.
+        </button>
+      </div>
     </div>;
   }
 }
