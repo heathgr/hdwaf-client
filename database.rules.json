@@ -1,4 +1,1 @@
-{
-  ".read": true,
-  ".write": true
-}
+{"totals":{".read":true,".write":false},"userProfiles":{"$uid":{".read":"auth != null && auth.uid == $uid",".write":"auth != null && auth.uid == $uid && data.val() == null"}},"userStatuses":{"$uid":{".read":"auth != null && auth.uid == $uid",".write":"auth != null && auth.uid == $uid && newData.child(\"previousStatus\").val() == data.child(\"status\").val()"}}}

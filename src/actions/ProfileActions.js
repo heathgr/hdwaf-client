@@ -12,7 +12,7 @@ const createProfile = (ageRange, gender) => (dispatch) => {
       timestamp,
     };
 
-    firebaseRef.child('user-profiles/' + user.uid).set(profile, (error) => {
+    firebaseRef.child('userProfiles/' + user.uid).set(profile, (error) => {
       if (error) {
         dispatch({
           type: types.PROFILE_CREATION_FAILED,
@@ -34,7 +34,7 @@ const listenToProfile = () => (dispatch) => {
   firebaseAuth.onAuthStateChanged(
     (user) => {
       if (user) {
-        firebaseRef.child('user-profiles/' + user.uid).on('value', (snapshot) => {
+        firebaseRef.child('userProfiles/' + user.uid).on('value', (snapshot) => {
           if (snapshot.exists()) {
             dispatch({
               type: types.PROFILE,

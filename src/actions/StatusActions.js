@@ -5,7 +5,7 @@ const listenToStatus = () => (dispatch, getState) => {
   firebaseAuth.onAuthStateChanged(
     (authData) => {
       if (authData) {
-        firebaseRef.child('user-statuses/' + authData.uid).on('value', (snapshot) => {
+        firebaseRef.child('userStatuses/' + authData.uid).on('value', (snapshot) => {
           if (snapshot.exists()) {
             dispatch({
               type: types.STATUS,
@@ -27,7 +27,7 @@ const updateStatus = (status, previousStatus) => (dispatch, getState) => {
   const authData = firebaseAuth.currentUser;
 
   if (authData && previousStatus != null) {
-    firebaseRef.child('user-statuses/' + authData.uid).set({
+    firebaseRef.child('userStatuses/' + authData.uid).set({
       status,
       previousStatus,
       timestamp,
