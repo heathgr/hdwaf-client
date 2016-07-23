@@ -19,6 +19,9 @@ class UpdateStatus extends Component {
                 this.props.user.statusData ? this.props.user.statusData.status : null
               )}
               id={status + 'StatusButton'}
+              style={{
+                opacity: this.props.user.statusData.status === id ? 0.5 : 1,
+              }}
             >
               {status}
             </button>

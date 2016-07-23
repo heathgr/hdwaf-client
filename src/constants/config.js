@@ -20,7 +20,7 @@ const masterElementFontSize = 20;
 const masterTitleFontSize = 40;
 
 const config = {
-  graphOrigin: [500, 418],
+  graphOrigin: [526, 418],
   graphSectors: {
     statuses: {
       startAngle: 140 * degToRad,
@@ -166,7 +166,7 @@ const config = {
     },
   },
   startBadge: {
-    origin: [500, 418],
+    origin: [526, 418],
     radius: 95,
     counterLine: 0,
     textLines: [

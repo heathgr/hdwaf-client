@@ -30,10 +30,6 @@ describe('<CreateProfile />', () => {
     menuData={ menuData }
   />);
 
-  it('should have a welcome message with the user\'s display name', () => {
-    expect(createProfileWrapper.find('#welcomeMessage')).to.have.text('Welcome, Doctor Philastus Hurlbut.');
-  });
-
   it('should have an age range selector', () => {
     expect(createProfileWrapper.find('#ageRangeSelector')).to.have.exactly(ageRanges.length).descendants('option');
   });
